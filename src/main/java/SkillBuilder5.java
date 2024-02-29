@@ -17,8 +17,14 @@ public class SkillBuilder5
      */
     public static double[] prefixAverage(double[] data)
     {
-        //TODO: replace this line with your code.
-        return null;
+        double sum = 0;
+        double[] sumList = new double[data.length];
+
+        for (int index = 0; index < data.length; index++) {
+            sum += data[index];
+            sumList[index] = (sum / (index + 1));
+        }
+    return sumList;
     }
 
     /**
@@ -31,8 +37,12 @@ public class SkillBuilder5
      */
     public static int  indexOf(int searchValue, int[] anArray)
     {
-        //TODO: replace this line with your code.
-        return 0;
+        for (int index = 0; index < anArray.length; index++) {
+            if (anArray[index] == searchValue) {
+                return index;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -45,8 +55,12 @@ public class SkillBuilder5
      */
     public static int  indexOf(String s, String[] anArray)
     {
-        //TODO: replace this line with your code.
-        return 0;
+        for (int index = 0; index < anArray.length; index++) {
+            if (anArray[index].equals(s)) {
+                return index;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -56,10 +70,26 @@ public class SkillBuilder5
      * @param anArray array in which to search and remove s
      * @return An array with all occurrences of s removed.
      */
-    public static String[] remove(String s, String[] anArray)
-    {
-        // add your code here
-        return null;
+    public static String[] remove(String s, String[] anArray) {
+        int notSNum = 0;
+        int index2 = 0;
+
+        // Length of newArray determined here and creates dupe array.
+        for (int index = 0; index < anArray.length; index++) {
+            if (anArray[index].equals(s) == false) {
+                notSNum += 1;
+            }
+        }
+
+        String [] withoutS = new String[notSNum];
+
+        for (int index = 0; index < anArray.length; index++) {
+            if (anArray[index].equals(s) == false) {
+                withoutS[index2] = anArray[index];
+                index2++;
+            }
+        }
+        return withoutS;
     }
 
     /**
@@ -68,6 +98,15 @@ public class SkillBuilder5
      */
     public static void reverse(int[] anArray)
     {
-        // add your code here
+        int[] reversed = new int[anArray.length];
+        if (!(anArray.length == 0 || anArray == null)) {
+            for (int index = 0; index < anArray.length; index++) {
+                reversed[anArray.length - (index + 1)] = anArray[index];
+            }
+            for (int index = 0; index < anArray.length; index++) {
+                anArray[index] = reversed[index];
+            }
+
+        }
     }
 }
